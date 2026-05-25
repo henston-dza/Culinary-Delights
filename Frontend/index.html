@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culinary Delights - Restaurant Landing Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand fw-bold" href="#home">
+                <i class="fas fa-utensils me-2"></i>Culinary Delights
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#specials">Chef's Specials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reservation">Reservation</a></li>
+
+                    <!-- Auth Section -->
+                    <li class="nav-item ms-lg-3" id="navAuthSection">
+                        <button class="btn btn-outline-primary btn-sm px-3 text-white border-1" id="navLoginBtn"
+                            data-bs-toggle="modal" data-bs-target="#authModal">
+                            <i class="fas fa-user-circle me-1"></i>Login / Sign Up
+                        </button>
+                    </li>
+                    <li class="nav-item dropdown ms-lg-3 d-none" id="navUserDropdown">
+                        <a class="nav-link dropdown-toggle btn btn-outline-primary btn-sm px-3 text-white border-1"
+                            href="#" id="userMenuDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-user me-2 text-primary-color"></i><span id="navUsername">Guest</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end glass-dropdown" aria-labelledby="userMenuDropdown">
+                            <li><a class="dropdown-item" href="#" id="viewBookingsBtn" data-bs-toggle="modal"
+                                    data-bs-target="#bookingsModal"><i
+                                        class="fas fa-calendar-alt me-2 text-primary-color"></i>My Bookings</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-secondary">
+                            </li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn"><i
+                                        class="fas fa-sign-out-alt me-2 text-danger"></i>Logout</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown ms-lg-3">
+                        <a class="nav-link dropdown-toggle btn btn-outline-primary btn-sm px-3 text-white border-0"
+                            href="#" id="moodDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-moon me-2"></i>Ambiance
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end glass-dropdown" aria-labelledby="moodDropdown">
+                            <li><a class="dropdown-item active" href="#" data-theme="midnight"><i
+                                        class="fas fa-moon me-2 text-warning"></i>Midnight Lounge</a></li>
+                            <li><a class="dropdown-item" href="#" data-theme="candlelight"><i
+                                        class="fas fa-fire me-2 text-danger"></i>Candlelight Bistro</a></li>
+                            <li><a class="dropdown-item" href="#" data-theme="imperial"><i
+                                        class="fas fa-gem me-2 text-info"></i>Grand Imperial</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section app-section route-active animate-fade-in">
+        <div class="hero-overlay"></div>
+       <div class="container h-100 d-flex align-items-center justify-content-center ">
+            <div class="text-center text-white hero-content">
+                <h1 class="display-3 fw-bold mb-3 animate-fade-in">Welcome to Culinary Delights</h1>
+                <p class="lead mb-4 animate-fade-in-delay">Experience the finest cuisine crafted with passion and
+                    perfection</p>
+                <a href="#reservation" class="btn btn-primary btn-lg me-2 btn-hover">Reserve Now</a>
+                <a href="#menu" class="btn btn-outline-light btn-lg btn-hover">Explore Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-5 bg-light app-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title mb-3">Our Menu</h2>
+                <p class="text-muted">Discover our exquisite selection of dishes</p>
+            </div>
+
+            <!-- Menu Filter Buttons -->
+            <div class="text-center mb-4">
+                <button class="btn btn-outline-primary me-2 mb-2 menu-filter active" data-filter="all">All</button>
+                <button class="btn btn-outline-primary me-2 mb-2 menu-filter"
+                    data-filter="appetizers">Appetizers</button>
+                <button class="btn btn-outline-primary me-2 mb-2 menu-filter" data-filter="mains">Main Courses</button>
+                <button class="btn btn-outline-primary me-2 mb-2 menu-filter" data-filter="desserts">Desserts</button>
+                <button class="btn btn-outline-primary me-2 mb-2 menu-filter" data-filter="beverages">Beverages</button>
+            </div>
+
+            <!-- Menu Items Grid -->
+            <div class="row g-4">
+                <!-- Appetizers -->
+                <div class="col-md-6 col-lg-4 menu-item" data-category="appetizers">
+                    <div class="card menu-card h-100">
+                        <img src="https://images.unsplash.com/photo-1572656631137-7935297eff55?auto=format&fit=crop&w=400&h=250&q=80"
+                            class="card-img-top" alt="Garlic Bruschetta">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Garlic Bruschetta</h5>
+                            <p class="card-text text-muted flex-grow-1">Crispy toasted bread with fresh tomatoes, basil,
+                                and garlic</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                                <span class="price-tag mb-0">₹720</span>
+                                <button class="btn btn-sm btn-outline-primary btn-add-plan"
+                                    data-name="Garlic Bruschetta" data-price="720" data-category="Appetizer"
+                                    data-spicy="false" data-veg="true" data-gluten="true">
+                                    Add to Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-item" data-category="appetizers">
+                    <div class="card menu-card h-100">
+                        <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=400&h=250&q=80"
+                            class="card-img-top" alt="Crispy Calamari">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Crispy Calamari</h5>
+                            <p class="card-text text-muted flex-grow-1">Golden-fried squid with lemon and marinara sauce
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                                <span class="price-tag mb-0">₹1,040</span>
+                                <button class="btn btn-sm btn-outline-primary btn-add-plan" data-name="Crispy Calamari"
+                                    data-price="1040" data-category="Appetizer" data-spicy="true" data-veg="false"
+                                    data-gluten="true">
+                                    Add to Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-item" data-category="appetizers">
+                    <div class="card menu-card h-100">
+                        <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=400&h=250&q=80"
+                            class="card-img-top" alt="Garlic Shrimp">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Garlic Shrimp</h5>
+                            <p class="card-text text-muted flex-grow-1">Fresh shrimp sautéed with garlic and white wine
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                                <span class="price-tag mb-0">₹1,120</span>
+                                <button class="btn btn-sm btn-outline-primary btn-add-plan" data-name="Garlic Shrimp"
+                                    data-price="1120" data-category="Appetizer" data-spicy="false" data-veg="false"
+                                    data-gluten="false">
+                                    Add to Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Courses -->
+                <div class="col-md-6 col-lg-4 menu-item" data-category="mains">
+                    <div class="card menu-card h-100">
+                        <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=400&h=250&q=80"
+                            class="card-img-top" alt="Grilled Salmon">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Grilled Salmon</h5>
+                            <p class="card-text text-muted flex-grow-1">Atlantic salmon with herb butter and seasonal
+                                vegetables</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                                <span class="price-tag mb-0">₹2,000</span>
+                                <button class="btn btn-sm btn-outline-primary btn-add-plan" data-name="Grilled Salmon"
+                                    data-price="2000" data-category="Main" data-spicy="false" data-veg="false"
+                                    data-gluten="false">
+                                    Add to Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-item" data-category="mains">
+                    <div class="card menu-card h-100">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&h=250&q=80"
+                            class="card-img-top" alt="Prime Ribeye Steak">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Prime Ribeye Steak</h5>
+                            <p class="card-text text-muted flex-grow-1">12oz premium cut with truffle mashed potatoes
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                                <span class="price-tag mb-0">₹2,640</span>
+                                <button class="btn btn-sm btn-outline-primary btn-add-plan"
+                                    data-name="Prime Ribeye Steak" data-price="2640" data-category="Main"
+                                    data-spicy="false" data-veg="false" data-gluten="false">
+                                    Add to Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-item" data-category="mains">
+                    <div class="card menu-card h-100">
+                        <img src="https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&w=400&h=250&q=80"
+                            class="card-img-top" alt="Pasta Carbonara">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Pasta Carbonara</h5>
+                            <p class="card-text text-muted flex-grow-1">Creamy Italian pasta with pancetta and parmesan
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                                <span class="price-tag mb-0">₹1,520</span>
+                                <button class="btn btn-sm btn-outline-primary btn-add-plan" data-name="Pasta Carbonara"
+                                    data-price="1520" data-category="Main" data-spicy="false" data-veg="false"
+                                    data-gluten="true">
+                                    Add to Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desserts -->
+                <div class="col-md-6 col-lg-4 menu-item" data-category="desserts">
+                    <div class="card menu-card h-100">
+                        <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=400&h=250&q=80"
+                            class="card-img-top" alt="Classic Tiramisu">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Classic Tiramisu</h5>
+                            <p class="card-text text-muted flex-grow-1">Layers of coffee-soaked ladyfingers and
+                                mascarpone cream</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                                <span class="price-tag mb-0">₹640</span>
+                                <button class="btn btn-sm btn-outline-primary btn-add-plan" data-name="Classic Tiramisu"
+                                    data-price="640" data-category="Dessert" data-spicy="false" data-veg="true"
+                                    data-gluten="true">
+                                    Add to Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-item" data-category="desserts">
+                    <div class="card menu-card h-100">
+                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=400&h=250&q=80"
+                            class="card-img-top" alt="Chocolate Lava Cake">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Chocolate Lava Cake</h5>
+                            <p class="card-text text-muted flex-grow-1">Warm chocolate cake with molten center and ice
+                                cream</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                                <span class="price-tag mb-0">₹720</span>
+                                <button class="btn btn-sm btn-outline-primary btn-add-plan"
+                                    data-name="Chocolate Lava Cake" data-price="720" data-category="Dessert"
+                                    data-spicy="false" data-veg="true" data-gluten="true">
+                                    Add to Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-item" data-category="desserts">
+                    <div class="card menu-card h-100">
+                        <img src="https://images.unsplash.com/photo-1578775887804-699de7086ff9?auto=format&fit=crop&w=400&h=250&q=80"
+                            class="card-img-top" alt="New York Cheesecake">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">New York Cheesecake</h5>
+                            <p class="card-text text-muted flex-grow-1">Creamy cheesecake with berry compote topping</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                                <span class="price-tag mb-0">₹640</span>
+                                <button class="btn btn-sm btn-outline-primary btn-add-plan"
+                                    data-name="New York Cheesecake" data-price="640" data-category="Dessert"
+                                    data-spicy="false" data-veg="true" data-gluten="true">
+                                    Add to Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beverages -->
+                <div class="col-md-6 col-lg-4 menu-item" data-category="beverages">
+                    <div class="card menu-card h-100">
+                        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=400&h=250&q=80"
+                            class="card-img-top" alt="Premium Red Wine">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Premium Red Wine</h5>
+                            <p class="card-text text-muted flex-grow-1">Cabernet Sauvignon from Napa Valley</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                                <span class="price-tag mb-0">₹3,600/bottle</span>
+                                <button class="btn btn-sm btn-outline-primary btn-add-plan" data-name="Premium Red Wine"
+                                    data-price="3600" data-category="Beverage" data-spicy="false" data-veg="true"
+                                    data-gluten="false">
+                                    Add to Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-item" data-category="beverages">
+                    <div class="card menu-card h-100">
+                        <img src="https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=400&h=250&q=80"
+                            class="card-img-top" alt="Craft Beer Selection">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Craft Beer Selection</h5>
+                            <p class="card-text text-muted flex-grow-1">Local and international craft beers on tap</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                                <span class="price-tag mb-0">₹560</span>
+                                <button class="btn btn-sm btn-outline-primary btn-add-plan"
+                                    data-name="Craft Beer Selection" data-price="560" data-category="Beverage"
+                                    data-spicy="false" data-veg="true" data-gluten="true">
+                                    Add to Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-item" data-category="beverages">
+                    <div class="card menu-card h-100">
+                        <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=400&h=250&q=80"
+                            class="card-img-top" alt="Signature Cocktail">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Signature Cocktail</h5>
+                            <p class="card-text text-muted flex-grow-1">Our house special blend with fresh citrus</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                                <span class="price-tag mb-0">₹880</span>
+                                <button class="btn btn-sm btn-outline-primary btn-add-plan"
+                                    data-name="Signature Cocktail" data-price="880" data-category="Beverage"
+                                    data-spicy="false" data-veg="true" data-gluten="false">
+                                    Add to Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chef's Specials Section -->
+    <section id="specials" class="py-5 app-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title mb-3">Chef's Specials</h2>
+                <p class="text-muted">Limited time offerings curated by our head chef</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="special-card">
+                        <div class="special-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&h=250&q=80"
+                                alt="Japanese Wagyu Beef">
+                            <span class="special-badge">Chef's Pick</span>
+                        </div>
+                        <div class="special-content">
+                            <h4>Japanese Wagyu Beef</h4>
+                            <p class="text-muted mb-3">Perfectly marbled Wagyu with truffle sauce and seasonal
+                                vegetables</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="special-price">₹3,440</span>
+                                <button class="btn btn-sm btn-primary btn-add-plan" data-name="Japanese Wagyu Beef"
+                                    data-price="3440" data-category="Chef Special" data-spicy="false" data-veg="false"
+                                    data-gluten="false">
+                                    Add to Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="special-card">
+                        <div class="special-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&fit=crop&w=400&h=250&q=80"
+                                alt="Maine Lobster Tail">
+                            <span class="special-badge">Limited</span>
+                        </div>
+                        <div class="special-content">
+                            <h4>Maine Lobster Tail</h4>
+                            <p class="text-muted mb-3">Fresh Maine lobster tail with drawn butter and citrus beurre
+                                blanc</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="special-price">₹3,120</span>
+                                <button class="btn btn-sm btn-primary btn-add-plan" data-name="Maine Lobster Tail"
+                                    data-price="3120" data-category="Chef Special" data-spicy="false" data-veg="false"
+                                    data-gluten="false">
+                                    Add to Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="special-card">
+                        <div class="special-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=400&h=300&q=80"
+                                alt="Truffle & Mushroom Risotto">
+                            <span class="special-badge">Vegetarian</span>
+                        </div>
+                        <div class="special-content">
+                            <h4>Truffle & Mushroom Risotto</h4>
+                            <p class="text-muted mb-3">Creamy Arborio rice with black truffle and mixed wild mushrooms
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="special-price">₹1,840</span>
+                                <button class="btn btn-sm btn-primary btn-add-plan"
+                                    data-name="Truffle & Mushroom Risotto" data-price="1840"
+                                    data-category="Chef Special" data-spicy="false" data-veg="true" data-gluten="false">
+                                    Add to Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5 bg-light app-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title mb-3">Customer Reviews</h2>
+                <p class="text-muted">What our guests are saying about us</p>
+            </div>
+
+            <!-- Testimonials Carousel -->
+            <div id="testimonialCarousel" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="5000">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0"
+                        class="active"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="3"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar-wrapper">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&h=120&q=80"
+                                    alt="Sarah Johnson" class="testimonial-avatar">
+                            </div>
+                            <div class="rating mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"The best dining experience I've ever had! The food was
+                                absolutely exquisite and the service was impeccable. Highly recommend!"</p>
+                            <div class="testimonial-author">
+                                <h5 class="mb-0">Sarah Johnson</h5>
+                                <small class="text-muted">Mumbai, India</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar-wrapper">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80"
+                                    alt="Michael Chen" class="testimonial-avatar">
+                            </div>
+                            <div class="rating mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"A true gem! The chef's specials are phenomenal and every dish
+                                is prepared with such care and attention to detail."</p>
+                            <div class="testimonial-author">
+                                <h5 class="mb-0">Michael Chen</h5>
+                                <small class="text-muted">San Francisco, CA</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar-wrapper">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&h=120&q=80"
+                                    alt="Emily Rodriguez" class="testimonial-avatar">
+                            </div>
+                            <div class="rating mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Elegant ambiance, outstanding food, and exceptional customer
+                                service. Worth every penny!"</p>
+                            <div class="testimonial-author">
+                                <h5 class="mb-0">Emily Rodriguez</h5>
+                                <small class="text-muted">Los Angeles, CA</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar-wrapper">
+                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&h=120&q=80"
+                                    alt="James & Lisa Williams" class="testimonial-avatar" loading="lazy">
+                            </div>
+                            <div class="rating mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Perfect for special occasions! The ambiance is romantic and the
+                                cuisine is world-class. Our anniversary dinner was unforgettable."</p>
+                            <div class="testimonial-author">
+                                <h5 class="mb-0">James & Lisa Williams</h5>
+                                <small class="text-muted">Boston, MA</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+
+            <!-- Review Stats -->
+            <div class="row mt-5 text-center">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="stat-box">
+                        <h3 class="stat-number">4.9</h3>
+                        <p class="stat-label">Average Rating</p>
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="stat-box">
+                        <h3 class="stat-number">1,250+</h3>
+                        <p class="stat-label">Happy Customers</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-box">
+                        <h3 class="stat-number">8 Years</h3>
+                        <p class="stat-label">Excellence Served</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="reservation" class="py-5 app-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title mb-3">Make a Reservation</h2>
+                <p class="text-muted">Book your table and join us for an unforgettable dining experience</p>
+            </div>
+
+            <div class="row g-4 align-items-stretch">
+                <!-- Form Column -->
+                <div class="col-lg-7">
+                    <form class="reservation-form h-100 d-flex flex-column justify-content-between" id="reservationForm">
+                        <div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Your Full Name" required>
+                                    <div class="validation-feedback text-danger small mt-1 d-none" id="nameFeedback">Name must be at least 3 characters</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="your@email.com" required>
+                                    <div class="validation-feedback text-danger small mt-1 d-none" id="emailFeedback">Please enter a valid email address</div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="e.g. 9876543210" required>
+                                    <div class="validation-feedback text-danger small mt-1 d-none" id="phoneFeedback">Phone number must be exactly 10 digits</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="guests" class="form-label">Number of Guests</label>
+                                    <select class="form-select" id="guests" required>
+                                        <option value="">Select number of guests</option>
+                                        <option value="1">1 Guest</option>
+                                        <option value="2">2 Guests</option>
+                                        <option value="3">3 Guests</option>
+                                        <option value="4">4 Guests</option>
+                                        <option value="5">5 Guests</option>
+                                        <option value="6">6+ Guests</option>
+                                    </select>
+                                    <div class="validation-feedback text-danger small mt-1 d-none" id="guestsFeedback">Please select number of guests</div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="date" class="form-label">Reservation Date</label>
+                                    <input type="date" class="form-control" id="date" required>
+                                    <div class="validation-feedback text-danger small mt-1 d-none" id="dateFeedback">Please select a future date</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="time" class="form-label">Reservation Time</label>
+                                    <input type="time" class="form-control" id="time" required>
+                                    <div class="validation-feedback text-danger small mt-1 d-none" id="timeFeedback">Business hours are 5:00 PM to 11:00 PM</div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="special" class="form-label">Special Requests (Optional)</label>
+                                <textarea class="form-control" id="special" rows="3"
+                                    placeholder="Let us know about allergies, dietary preferences, or special occasions..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <button type="submit" class="btn btn-primary btn-lg w-100 py-3 uppercase">Book Your Table</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Ticket Preview Column -->
+                <div class="col-lg-5">
+                    <div class="live-ticket-preview p-4 text-white d-flex flex-column justify-content-between position-relative h-100" id="liveTicketPreview">
+                        <!-- Ticket Header -->
+                        <div class="ticket-header text-center pb-3 border-bottom border-secondary position-relative">
+                            <h4 class="mb-1 tracking-wide uppercase text-primary-color">Culinary Delights</h4>
+                            <span class="text-muted small uppercase letter-spacing-1" style="font-size: 0.7rem;">Gourmet Experience Ticket</span>
+                            <div class="ticket-badge">LIVE PREVIEW</div>
+                        </div>
+                        
+                        <!-- Ticket Content -->
+                        <div class="ticket-body py-4 flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="text-muted small uppercase">Guest Name:</span>
+                                <span id="ticketName" class="fw-semibold text-white">Gourmet Guest</span>
+                            </div>
+                            
+                            <div class="row g-3 mb-3">
+                                <div class="col-6">
+                                    <span class="text-muted small d-block uppercase">Date:</span>
+                                    <span id="ticketDate" class="fw-semibold text-white"><i class="far fa-calendar-alt text-primary-color me-1"></i>TBD</span>
+                                </div>
+                                <div class="col-6">
+                                    <span class="text-muted small d-block uppercase">Time:</span>
+                                    <span id="ticketTime" class="fw-semibold text-white"><i class="far fa-clock text-primary-color me-1"></i>TBD</span>
+                                </div>
+                            </div>
+                            
+                            <div class="row g-3 mb-3">
+                                <div class="col-6">
+                                    <span class="text-muted small d-block uppercase">Guests Count:</span>
+                                    <span id="ticketGuests" class="fw-semibold text-white"><i class="fas fa-user-friends text-primary-color me-1"></i>TBD</span>
+                                </div>
+                                <div class="col-6">
+                                    <span class="text-muted small d-block uppercase">Seating Zone:</span>
+                                    <span id="ticketZone" class="fw-semibold text-white"><i class="fas fa-chair text-primary-color me-1"></i>Main Hall</span>
+                                </div>
+                            </div>
+
+                            <!-- Seating Selector inside Ticket -->
+                            <div class="seating-selector-wrapper mb-3 pt-3 border-top border-secondary-subtle">
+                                <label class="text-muted small d-block uppercase mb-2" style="font-size: 0.7rem;">Select Seating Zone:</label>
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <button type="button" class="btn btn-xs btn-outline-primary active seating-zone-btn" data-zone="Main Hall" style="font-size: 0.72rem; padding: 4px 8px;">Main Hall</button>
+                                    <button type="button" class="btn btn-xs btn-outline-primary seating-zone-btn" data-zone="Cozy Booth" style="font-size: 0.72rem; padding: 4px 8px;">Cozy Booth</button>
+                                    <button type="button" class="btn btn-xs btn-outline-primary seating-zone-btn" data-zone="Window View" style="font-size: 0.72rem; padding: 4px 8px;">Window View</button>
+                                    <button type="button" class="btn btn-xs btn-outline-primary seating-zone-btn" data-zone="VIP Lounge" style="font-size: 0.72rem; padding: 4px 8px;">VIP Lounge</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Ticket Menu Plan -->
+                            <div class="ticket-menu-plan-wrapper mt-3 pt-3 border-top border-secondary">
+                                <span class="text-muted small d-block uppercase mb-2" style="font-size: 0.7rem;">Selected Culinary Plan:</span>
+                                <div id="ticketPlanItems" class="ticket-plan-items d-flex flex-column gap-2 overflow-y-auto" style="max-height: 120px;">
+                                    <div class="text-muted small fst-italic">No items added to plan. Explore our menu to personalize your dining itinerary!</div>
+                                </div>
+                                <div id="ticketPlanTotal" class="ticket-plan-total d-flex justify-content-between align-items-center mt-3 pt-2 border-top border-secondary-subtle d-none">
+                                    <span class="text-muted small uppercase">Est. Culinary Subtotal:</span>
+                                    <span id="ticketSubtotalVal" class="fw-bold text-primary-color fs-5">₹0</span>
+                                </div>
+                            </div>
+
+                            <!-- Dynamic Dietary Suggestion / Warning -->
+                            <div id="ticketDietaryAlert" class="ticket-dietary-alert p-2.5 rounded mt-3 d-none" style="font-size: 0.75rem;">
+                                <!-- Dynamic suggestion text will go here -->
+                            </div>
+                        </div>
+                        
+                        <!-- Ticket Footer -->
+                        <div class="ticket-footer text-center pt-3 border-top border-secondary border-dashed">
+                            <span class="text-muted small uppercase" style="font-size: 0.65rem;">Valid only with confirmed reservation</span>
+                            <!-- Barcode effect -->
+                            <div class="barcode-wrapper mt-2">
+                                <div class="barcode-line" style="width: 100%; height: 28px; background: linear-gradient(90deg, 
+                                    #fff 0%, #fff 2%, #000 2%, #000 4%, #fff 4%, #fff 5%, #000 5%, #000 8%, 
+                                    #fff 8%, #fff 9%, #000 9%, #000 10%, #fff 10%, #fff 13%, #000 13%, #000 14%, 
+                                    #fff 14%, #fff 16%, #000 16%, #000 18%, #fff 18%, #fff 21%, #000 21%, #000 22%, 
+                                    #fff 22%, #fff 25%, #000 25%, #000 28%, #fff 28%, #fff 29%, #000 29%, #000 32%,
+                                    #fff 32%, #fff 35%, #000 35%, #000 36%, #fff 36%, #fff 38%, #000 38%, #000 41%,
+                                    #fff 41%, #fff 43%, #000 43%, #000 46%, #fff 46%, #fff 47%, #000 47%, #000 50%,
+                                    #fff 50%, #fff 53%, #000 53%, #000 54%, #fff 54%, #fff 56%, #000 56%, #000 59%,
+                                    #fff 59%, #fff 61%, #000 61%, #000 64%, #fff 64%, #fff 66%, #000 66%, #000 67%,
+                                    #fff 67%, #fff 70%, #000 70%, #000 71%, #fff 71%, #fff 73%, #000 73%, #000 76%,
+                                    #fff 76%, #fff 78%, #000 78%, #000 80%, #fff 80%, #fff 83%, #000 83%, #000 85%,
+                                    #fff 85%, #fff 88%, #000 88%, #000 89%, #fff 89%, #fff 92%, #000 92%, #000 95%,
+                                    #fff 95%, #fff 97%, #000 97%, #000 100%);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="col-lg-8 mx-auto mt-5">
+                    <div class="row text-center">
+                        <div class="col-md-6 mb-4">
+                            <div class="contact-info-box">
+                                <i class="fas fa-map-marker-alt mb-3"></i>
+                                <h5>Location</h5>
+                                <p>Plot No. 42, Marine Drive<br>Mumbai, Maharashtra 400020, India</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="contact-info-box">
+                                <i class="fas fa-phone mb-3"></i>
+                                <h5>Phone</h5>
+                                <p>+91-22-6789-1234<br>+91-98765-43210</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-md-6 mb-4">
+                            <div class="contact-info-box">
+                                <i class="fas fa-clock mb-3"></i>
+                                <h5>Hours</h5>
+                                <p>Mon-Thu: 5pm - 10pm<br>Fri-Sat: 5pm - 11pm<br>Sun: 5pm - 9pm</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="contact-info-box">
+                                <i class="fas fa-envelope mb-3"></i>
+                                <h5>Email</h5>
+                                <p>info@culinarydelights.com<br>reservations@culinarydelights.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5 class="mb-3">About Us</h5>
+                    <p class="text-muted">Culinary Delights is a premier fine dining restaurant dedicated to providing
+                        an exceptional culinary experience.</p>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#menu" class="text-muted text-decoration-none">Menu</a></li>
+                        <li><a href="#specials" class="text-muted text-decoration-none">Chef's Specials</a></li>
+                        <li><a href="#testimonials" class="text-muted text-decoration-none">Reviews</a></li>
+                        <li><a href="#reservation" class="text-muted text-decoration-none">Reservations</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-muted text-decoration-none me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-muted text-decoration-none me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-muted text-decoration-none me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-muted text-decoration-none"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-secondary">
+            <div class="text-center text-muted">
+                <p>&copy; 2024 Culinary Delights. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Culinary Trigger Badge -->
+    <button id="culinaryTrigger" class="culinary-planner-trigger d-none" aria-label="Open Culinary Planner">
+        <div class="trigger-icon-wrapper">
+            <i class="fas fa-utensils"></i>
+            <span class="badge rounded-pill bg-danger cart-count-badge">0</span>
+        </div>
+    </button>
+
+    <!-- Culinary Planner Drawer -->
+    <div id="culinaryDrawer" class="culinary-drawer">
+        <div class="drawer-header d-flex justify-content-between align-items-center border-bottom pb-3">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-heart text-primary-color me-2 fs-4"></i>
+                <h3 class="mb-0 fs-4 text-white">Your Culinary Plan</h3>
+            </div>
+            <button id="closeDrawerBtn" class="close-drawer-btn" aria-label="Close Drawer">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="drawer-body">
+            <!-- Empty State -->
+            <div id="drawerEmptyState" class="drawer-empty-state text-center py-5">
+                <i class="fas fa-plate-wheat mb-3 text-muted fs-1"></i>
+                <h5 class="text-white">Your plan is empty</h5>
+                <p class="text-muted small">Explore our menu and add fine dishes to compose your custom culinary
+                    itinerary!</p>
+                <a href="#menu" id="drawerExploreBtn" class="btn btn-sm btn-outline-primary mt-2">Explore Menu</a>
+            </div>
+
+            <!-- Items List -->
+            <div id="drawerItemsList" class="drawer-items-list d-none">
+                <!-- Programmatic cart items go here -->
+            </div>
+
+            <!-- Live Dietary / Flavor Analysis Dashboard -->
+            <div id="drawerAnalysisDashboard" class="drawer-analysis-dashboard mt-4 d-none">
+                <h6 class="text-primary-color text-uppercase mb-3 small tracking-wide">Plan Flavor Profile</h6>
+                <div class="row g-2">
+                    <div class="col-6">
+                        <div class="profile-stat-box text-center p-2 rounded">
+                            <span class="d-block text-muted small">Spiciness</span>
+                            <strong id="spicyCount" class="text-white fs-6">None</strong>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="profile-stat-box text-center p-2 rounded">
+                            <span class="d-block text-muted small">Dietary</span>
+                            <strong id="vegVegBadge" class="text-white fs-6">0 Veg</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="gluten-warning-box text-muted small mt-2 p-2 rounded border border-secondary d-none"
+                    id="glutenWarningBox">
+                    <i class="fas fa-circle-exclamation text-warning me-1"></i> Contains gluten items.
+                </div>
+            </div>
+        </div>
+
+        <div class="drawer-footer border-top pt-3 d-none" id="drawerFooter">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Estimated Subtotal:</span>
+                <span id="drawerSubtotal" class="fs-4 fw-bold text-primary-color">₹0</span>
+            </div>
+            <button id="integrateReservationBtn" class="btn btn-primary w-100 btn-hover py-2.5">
+                <i class="fas fa-calendar-check me-2"></i>Integrate into Booking
+            </button>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content glass-modal text-white">
+                <div class="modal-header border-bottom-0 pb-0">
+                    <h5 class="modal-title fw-bold text-primary-color" id="authModalLabel">
+                        <i class="fas fa-utensils me-2"></i>Culinary Delights Account
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-3">
+                    <!-- Nav Tabs for Login / Sign Up -->
+                    <ul class="nav nav-tabs nav-justified glass-tabs mb-4" id="authTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active fw-semibold text-uppercase" id="login-tab"
+                                data-bs-toggle="tab" data-bs-target="#loginPanel" type="button" role="tab"
+                                aria-controls="loginPanel" aria-selected="true">
+                                <i class="fas fa-sign-in-alt me-2"></i>Login
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link fw-semibold text-uppercase" id="signup-tab" data-bs-toggle="tab"
+                                data-bs-target="#signupPanel" type="button" role="tab" aria-controls="signupPanel"
+                                aria-selected="false">
+                                <i class="fas fa-user-plus me-2"></i>Sign Up
+                            </button>
+                        </li>
+                    </ul>
+
+                    <!-- Tab Contents -->
+                    <div class="tab-content" id="authTabsContent">
+                        <!-- Login Panel -->
+                        <div class="tab-pane fade show active" id="loginPanel" role="tabpanel"
+                            aria-labelledby="login-tab">
+                            <form id="loginForm">
+                                <div class="mb-3">
+                                    <label for="loginEmail" class="form-label text-muted small uppercase">Email
+                                        Address</label>
+                                    <div class="input-group glass-input-group">
+                                        <span class="input-group-text"><i
+                                                class="fas fa-envelope text-primary-color"></i></span>
+                                        <input type="email" class="form-control" id="loginEmail"
+                                            placeholder="yourname@email.com" required>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="loginPassword"
+                                        class="form-label text-muted small uppercase">Password</label>
+                                    <div class="input-group glass-input-group">
+                                        <span class="input-group-text"><i
+                                                class="fas fa-lock text-primary-color"></i></span>
+                                        <input type="password" class="form-control" id="loginPassword"
+                                            placeholder="••••••••" required>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 btn-hover py-2.5 fw-bold uppercase">
+                                    Sign In <i class="fas fa-arrow-right ms-2"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Signup Panel -->
+                        <div class="tab-pane fade" id="signupPanel" role="tabpanel" aria-labelledby="signup-tab">
+                            <form id="signupForm">
+                                <div class="mb-3">
+                                    <label for="signupUsername"
+                                        class="form-label text-muted small uppercase">Username</label>
+                                    <div class="input-group glass-input-group">
+                                        <span class="input-group-text"><i
+                                                class="fas fa-user text-primary-color"></i></span>
+                                        <input type="text" class="form-control" id="signupUsername"
+                                            placeholder="FoodieChef" required minlength="3" maxlength="30">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="signupEmail" class="form-label text-muted small uppercase">Email
+                                        Address</label>
+                                    <div class="input-group glass-input-group">
+                                        <span class="input-group-text"><i
+                                                class="fas fa-envelope text-primary-color"></i></span>
+                                        <input type="email" class="form-control" id="signupEmail"
+                                            placeholder="gourmet@email.com" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="signupPassword" class="form-label text-muted small uppercase">Password</label>
+                                    <div class="input-group glass-input-group">
+                                        <span class="input-group-text"><i
+                                                class="fas fa-lock text-primary-color"></i></span>
+                                        <input type="password" class="form-control" id="signupPassword"
+                                            placeholder="••••••••" required>
+                                    </div>
+                                    <!-- Password Strength Meter -->
+                                    <div class="password-strength-container mt-2">
+                                        <div class="progress" style="height: 6px; background-color: rgba(255, 255, 255, 0.1); border-radius: 3px;">
+                                            <div id="passwordStrengthBar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mt-1">
+                                            <small id="passwordFeedback" class="form-text text-muted" style="font-size: 0.72rem;">Strength: Too Short</small>
+                                        </div>
+                                        <!-- Criteria Checklist -->
+                                        <ul class="list-unstyled password-criteria mt-2 small row g-1" style="font-size: 0.7rem; opacity: 0.85; padding-left: 0; margin-bottom: 0;">
+                                            <li class="col-6 text-danger" id="crit-length"><i class="fas fa-times-circle me-1"></i>Min 6 chars</li>
+                                            <li class="col-6 text-danger" id="crit-upper"><i class="fas fa-times-circle me-1"></i>1 Uppercase</li>
+                                            <li class="col-6 text-danger" id="crit-number"><i class="fas fa-times-circle me-1"></i>1 Number</li>
+                                            <li class="col-6 text-danger" id="crit-special"><i class="fas fa-times-circle me-1"></i>1 Special Char</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="signupConfirmPassword" class="form-label text-muted small uppercase">Confirm Password</label>
+                                    <div class="input-group glass-input-group">
+                                        <span class="input-group-text"><i
+                                                class="fas fa-lock text-primary-color"></i></span>
+                                        <input type="password" class="form-control" id="signupConfirmPassword"
+                                            placeholder="••••••••" required>
+                                    </div>
+                                    <div id="confirmPasswordFeedback" class="invalid-feedback d-none" style="font-size: 0.75rem; color: #e84118; margin-top: 5px;">Passwords do not match</div>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 btn-hover py-2.5 fw-bold uppercase">
+                                    Create Account <i class="fas fa-user-plus ms-2"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bookings Modal (Reservation History) -->
+    <div class="modal fade" id="bookingsModal" tabindex="-1" aria-labelledby="bookingsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+            <div class="modal-content glass-modal text-white">
+                <div class="modal-header border-bottom-0 pb-2">
+                    <h5 class="modal-title fw-bold text-primary-color" id="bookingsModalLabel">
+                        <i class="fas fa-calendar-check me-2"></i>Your Reservation History
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Active User Info Banner -->
+                    <div class="user-booking-banner p-3 rounded mb-4 d-flex align-items-center">
+                        <div class="avatar-circle-sm me-3"><i class="fas fa-user-tie text-white"></i></div>
+                        <div>
+                            <h6 class="mb-0 text-white" id="bookingsUserTitle">Gourmet Guest</h6>
+                            <small class="text-muted" id="bookingsUserEmail">guest@culinarydelights.com</small>
+                        </div>
+                    </div>
+
+                    <!-- Bookings Container -->
+                    <div id="bookingsListContainer" class="d-flex flex-column gap-4">
+                        <!-- Bookings list will be rendered dynamically here -->
+                        <div class="text-center py-5 text-muted" id="bookingsEmptyState">
+                            <i class="far fa-calendar-times mb-3 display-4 text-secondary"></i>
+                            <h5>No Reservations Found</h5>
+                            <p class="small text-muted">You haven't booked any tables with us yet. Reserve a table below
+                                to start your culinary journey!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
